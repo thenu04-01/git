@@ -1,18 +1,38 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
+import './App.css'
 import Welcome from './Welcome'
-//import './App.css'
+import Skills from './Skills'
 
+import { Route,Routes } from 'react-router-dom'
+import Home from './Pages/Home'
+import About from './Pages/About'
+import Services from './Pages/Services'
+import Navbar from './Components/Navbar'
+import State from './hooks/State'
+import Form from './hooks/form'
+import Effect from './hooks/Effect'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [count, setCount] =useState(0)
   return (
     <>
-      <Welcome name='Thenu'/>
-      <Welcome country='India'/>
-      <h1>How are you</h1>
+    <Navbar />
+
+    <Routes>
+    <Route path='/' element={<Home/>}/>
+     <Route path='/about' element={<About/>}/>
+      <Route path='/services' element={<Services/>}/>
+      <Route path='/state' element={<State />}/>
+    <Route path='/form' element={<Form />}/>
+     <Route path='/effect' element={<Effect />}/>
+    </Routes>
+    
+    <Welcome name='Thenu'/> 
+<Skills skill={['React','Node','Express','MangoDB']}/>
+   <h1>Enjoy your day!!!</h1>
+
     </>
   )
 }
