@@ -11,7 +11,7 @@ import About from './Pages/About'
 import Services from './Pages/Services'
 import Navbar from './Navbar'
 import State from './hooks/State'
-import Form from './hooks/form'
+import Form from './hooks/Form'
 import Effect from './hooks/Effect'
 import Reducer from './hooks/Reducer'
 
