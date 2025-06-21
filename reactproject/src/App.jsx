@@ -13,6 +13,7 @@ import Navbar from './Components/Navbar'
 import State from './hooks/State'
 import Form from './hooks/form'
 import Effect from './hooks/Effect'
+import Reducer from './hooks/Reducer'
 
 function App() {
   const [count, setCount] =useState(0)
@@ -27,6 +28,7 @@ function App() {
       <Route path='/state' element={<State />}/>
     <Route path='/form' element={<Form />}/>
      <Route path='/effect' element={<Effect />}/>
+     <Route path='/reducer' element={<Reducer />}/>
     </Routes>
     
     <Welcome name='Thenu'/> 
