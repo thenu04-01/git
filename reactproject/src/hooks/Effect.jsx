@@ -1,46 +1,40 @@
-import {useEffect } from "react"
-import {useState } from "react"
+import { useState, useEffect } from 'react';
+
 const Effect = () => {
-    const [count,setCount]=useState(0)
-    const [users,setUsers]=useState([])
-    const [posts,setPosts]=useState([])
-    //useEffect(()=>{
-    //    console.log("from useEffect");
+    const [users, setUsers] = useState([]);
+    const [posts, setPosts] = useState([]);
 
-    //},[count])
-    useEffect(()=>{
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((res) => res.json())
-        .then((data)=>setUsers(data))
+    useEffect(() => {
+        fetch('https://localhost:3000/get')
+            .then((res) => res.json())
+            .then((data) => setUsers(data));
+    }, []);
 
-
-    },[])
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
-        .then((res) => res.json())
-        .then((data)=>setPosts(data))
-    })
-    console.log(users);
+            .then((res) => res.json())
+            .then((data) => setPosts(data));
+    }, []);
 
     return (
-        <div>
-
-            
-            <u1>
-                {users.map((user)=>(
+        <div  style={{ textAlign: 'left' }}>
+            <ul>
+                {users.map((user) => (
                     <li key={user.id}>{user.name}</li>
-            
                 ))}
-            </u1>
-            <u1>
-                {posts.map((post)=>(
+            </ul>
+            <ul>
+                {posts.map((post) => (
                     <li key={post.id}>
                         <h2>{post.title}</h2>
                         <p>{post.body}</p>
                     </li>
                 ))}
-            </u1>
+            </ul>
         </div>
-    )
-}
-export default Effect
+    );
+};
+
+export default Effect;
+
+
